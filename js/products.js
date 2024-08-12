@@ -1,4 +1,5 @@
 let productsArray = [];
+let categoryID = localStorage.getItem("catID")
 
 function listadoProductos(){
 
@@ -31,10 +32,11 @@ function listadoProductos(){
 
 //Usa la funcion getJSONData que esta en init.js que me da los objetos en formato JSON
 document.addEventListener("DOMContentLoaded", function(e){
-    let autos = PRODUCTS_URL + 101 + EXT_TYPE;
+    let autos = PRODUCTS_URL + categoryID + EXT_TYPE;
     getJSONData(autos).then(function(resultObj){
         if (resultObj.status === "ok"){
-            productsArray = resultObj.data.products; //ni idea pq funca me lo dijo ChatGPT lo de .products dice q es para a los productos, confirmo q no funca sin eso
+            console.log(resultObj);
+            productsArray = resultObj.data.products;
             listadoProductos();
         }
     });
