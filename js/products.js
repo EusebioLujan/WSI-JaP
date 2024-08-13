@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     let autos = PRODUCTS_URL + 101 + EXT_TYPE;
     getJSONData(autos).then(function(resultObj){
         if (resultObj.status === "ok"){
+            console.log(resultObj.data);
+            
             productsArray = resultObj.data.products; //ni idea pq funca me lo dijo ChatGPT lo de .products dice q es para a los productos, confirmo q no funca sin eso
             listadoProductos();
         }
