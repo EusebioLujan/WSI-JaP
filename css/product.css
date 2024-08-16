@@ -31,13 +31,13 @@ input {
     margin: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    border-color: #0f212e71; 
-    transform: translateY(-5px); 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    border-color: #0f212e71; /* Cambia el color del borde al pasar el mouse */
+    transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
 }
 
 .car-image {
