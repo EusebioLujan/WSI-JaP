@@ -1,6 +1,9 @@
 let productsArray = [];
 let categoryID = localStorage.getItem("catID")
-
+function setcatINFOID(id){
+    localStorage.setItem("catINFOID",id);
+    window.location = "product-info.html"
+}
 function listadoProductos(){
 
     let htmlContentToAppend = "";
@@ -12,17 +15,19 @@ function listadoProductos(){
 
         //row = fila , col = columna
         htmlContentToAppend += `
-            <div class="row">
-                <div class="col-3">
-                    <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
+            <div class="card" onclick="setcatINFOID(${product.id})">
+            <div class="image-details">
+                <img src="${product.image}" alt="${product.description}" class="car-image ">
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">${product.name}</h4>
-                        <small class="text-muted">${product.soldCount} artículos vendidos</small>
-                    </div>
-                    <p class="mb-1">${product.description}</p>
-                    <h5> Por tan solo ${product.currency} ${product.cost} </h5>
+                <div class="card-content">
+                <div class="title-row">
+                <h2 class="car-title">${product.name}</h2>
+                <span class="sold-info">${product.soldCount} Vendidos</span>
+                </div>
+                <p class="price">${product.currency} ${product.cost}</p>
+                <p class="description">
+                ${product.description}
+                </p>
                 </div>
             </div>
             `
@@ -32,11 +37,12 @@ function listadoProductos(){
 
 //Usa la funcion getJSONData que esta en init.js que me da los objetos en formato JSON
 document.addEventListener("DOMContentLoaded", function(e){
+    const catName= document.getElementById("categoryName")
     let autos = PRODUCTS_URL + categoryID + EXT_TYPE;
     getJSONData(autos).then(function(resultObj){
         if (resultObj.status === "ok"){
-            console.log(resultObj);
-            productsArray = resultObj.data.products;
+            productsArray = resultObj.data.products; 
+            catName.innerHTML = resultObj?.data?.catName
             listadoProductos();
         }
     });
