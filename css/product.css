@@ -1,0 +1,172 @@
+body {
+    background-color: #0F212E;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 2%;
+    display: flex;
+    background-color: #f5f5f5;
+    justify-content: center;
+}
+
+.container-search {
+    width: 40%;
+    padding: 2%;
+    border-right: 1px solid #91919142;
+}
+
+input {
+    margin-top: 5%;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 350px;
+    margin: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: all 0.3s ease; /* Transición para el efecto hover */
+}
+
+.card:hover {
+    border-color: #0f212e71; /* Cambia el color del borde al pasar el mouse */
+    transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+.car-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.image-details {
+    padding: 3%;
+}
+
+.card-content {
+    padding: 5%;
+    text-align: center;
+    border-top: 1px solid #070707;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.car-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sold-info {
+    font-size: 10px;
+    color: #777;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.center-block {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #ebebeb;
+}
+
+/* Responsive Design */
+
+/* Pantallas grandes - 1080p y superiores */
+@media (min-width: 1080px) {
+    .card {
+        width: 350px;
+        margin: 20px;
+    }
+    .container-search {
+        width: 40%;
+    }
+}
+
+/* Pantallas medianas - tablets */
+@media (max-width: 1024px) {
+    .card {
+        width: 300px;
+        margin: 15px;
+    }
+    .car-title {
+        font-size: 18px;
+    }
+    .price {
+        font-size: 18px;
+    }
+    .description {
+        font-size: 13px;
+    }
+    .container-search {
+        width: 60%;
+    }
+}
+
+/* Pantallas pequeñas - smartphones */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .card {
+        width: 90%;
+        margin: 10px auto;
+    }
+    .car-title {
+        font-size: 16px;
+    }
+    .price {
+        font-size: 16px;
+    }
+    .description {
+        font-size: 12px;
+    }
+    .container-search {
+        width: 100%;
+        border-right: none;
+    }
+}
+
+/* Pantallas muy pequeñas - smartphones pequeños */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        margin: 5px auto;
+    }
+    .car-title {
+        font-size: 14px;
+    }
+    .price {
+        font-size: 14px;
+    }
+    .description {
+        font-size: 12px;
+    }
+    .container-search {
+        padding: 5%;
+    }
+}
