@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function Login_Check(){
-    if(!localStorage.getItem("logeado")---"false"){
+    if(!localStorage.getItem("logeado")==="false"){
         alert("No estas logeado redireccionado")
         window.location = "login.html"
     }}
