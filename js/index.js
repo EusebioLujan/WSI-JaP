@@ -12,15 +12,17 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    document.getElementById("cerrar").addEventListener("click",function(){
+        localStorage.setItem("logeado",false);
+        window.location = "index.html" 
+    })
 });
 
 function Login_Check(){
-console.log("get item logeado:",localStorage.getItem("logeado"));
-
-    if(localStorage.getItem("logeado")===false){
-        console.log("entre al if");
-        
+    if(localStorage.getItem("logeado")==="false"){
         alert("No estas logeado redireccionando")
         window.location = "login.html"
     }
 }
+
+    
