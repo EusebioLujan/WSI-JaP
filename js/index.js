@@ -15,17 +15,11 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("cerrar").addEventListener("click", function(){
         localStorage.setItem("logeado", false)
         window.location = "index.html"
-    })
-    
+    }) 
 });
 
 function Login_Check(){
-
     if(!localStorage.getItem("logeado")---"false"){
         alert("No estas logeado redireccionado")
         window.location = "login.html"
-
-    }
-    }
-
-
+    }}

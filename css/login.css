@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #333;
+    flex-direction: column;
+  }
+  .login {
+    text-align: center;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+  }
+  .login h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .login p {
+    font-size: 14px;
+    color: #f28000;
+    margin-bottom: 20px;
+  }
+  .login label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+  }
+  .login input[type="text"],
+  .login input[type="email"],
+  .login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .login input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .login button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f28000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .login button.volver {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #f28000;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .imglogin {
+    width: 100%;
+    height: 100%;
+  }

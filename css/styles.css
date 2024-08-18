@@ -188,6 +188,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
 .shadowcard {
   position: relative;
   justify-content: center;
