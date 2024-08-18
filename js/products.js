@@ -1,9 +1,11 @@
 let productsArray = [];
 let categoryID = localStorage.getItem("catID")
-function setcatINFOID(id){
-    localStorage.setItem("catINFOID",id);
+
+function setprodINFOID(id){
+    localStorage.setItem("prodINFOID",id);
     window.location = "product-info.html"
 }
+
 function listadoProductos(){
 
     let htmlContentToAppend = "";
@@ -15,7 +17,7 @@ function listadoProductos(){
 
         //row = fila , col = columna
         htmlContentToAppend += `
-            <div class="card" onclick="setcatINFOID(${product.id})">
+            <div class="card" onclick="setprodINFOID(${product.id})">
             <div class="image-details">
                 <img src="${product.image}" alt="${product.description}" class="car-image ">
                 </div>

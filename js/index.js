@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+    Login_Check();
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
@@ -12,3 +13,14 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+function Login_Check(){
+console.log("get item logeado:",localStorage.getItem("logeado"));
+
+    if(localStorage.getItem("logeado")===false){
+        console.log("entre al if");
+        
+        alert("No estas logeado redireccionando")
+        window.location = "login.html"
+    }
+}
