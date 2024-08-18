@@ -7,6 +7,6 @@ document.getElementById("ingresar").addEventListener("click",function(){
     }
     else{
         localStorage.setItem("logeado", true)
-        window.location.href = "index.html"
+        window.location = "index.html"
     }
 })
