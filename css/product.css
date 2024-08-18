@@ -35,7 +35,7 @@ input {
 }
 
 .card:hover {
-    border-color: #0f212e71; 
+    border-color: #0f212e71;
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
