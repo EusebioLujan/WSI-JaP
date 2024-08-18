@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    Login_Check();
+    Login_Check()
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
@@ -14,12 +14,13 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     document.getElementById("cerrar").addEventListener("click", function(){
         localStorage.setItem("logeado", false)
+        console.log("cerrar:",localStorage.getItem("logeado"));
         window.location = "index.html"
     }) 
 });
 
 function Login_Check(){
-    if(!localStorage.getItem("logeado")==="false"){
+    if(localStorage.getItem("logeado")==="false"){
         alert("No estas logeado redireccionado")
         window.location = "login.html"
     }}
