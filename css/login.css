@@ -119,3 +119,7 @@ form{
     font-size: .5em;
   }
 }
+.error-message {
+  color: red;
+  font-size: 12px;
+}
