@@ -1,7 +1,4 @@
-const usuarioNombre = localStorage.getItem("nombre");     
-           
-
-document.addEventListener("DOMContentLoaded", function(){
+          document.addEventListener("DOMContentLoaded", function(){
     Login_Check()
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -15,13 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-    /*
-    document.getElementById("cerrar").addEventListener("click", function(){
-        localStorage.setItem("logeado", false)
-        console.log("cerrar:",localStorage.getItem("logeado"));
-        window.location = "index.html"
-    })
-    */
+    
     const usuarioNombre = localStorage.getItem("user");
     if (usuarioNombre) {
         document.getElementById("nombre").textContent = usuarioNombre;
