@@ -12,11 +12,19 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    /*
     document.getElementById("cerrar").addEventListener("click", function(){
         localStorage.setItem("logeado", false)
         console.log("cerrar:",localStorage.getItem("logeado"));
         window.location = "index.html"
-    }) 
+    })
+    */
+    const usuarioNombre = localStorage.getItem("user");
+    if (usuarioNombre) {
+        document.getElementById("nombre").textContent = usuarioNombre;
+    } else {
+        document.getElementById("nombre").textContent = "logeate";
+    } 
 });
 
 function Login_Check(){
