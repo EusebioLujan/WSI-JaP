@@ -7,8 +7,7 @@ document.getElementById("ingresar").addEventListener("click", function(e){
         alert ("Campos vacíos")
     }else {
         localStorage.setItem("logeado",true)
-        window.location.href = "index.html"
-        localStorage.setItem("nombre", usuario)
+        localStorage.setItem("user", user)
         window.location.href = "index.html"
     }
 })

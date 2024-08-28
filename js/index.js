@@ -20,18 +20,14 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("logeado", false)
         console.log("cerrar:",localStorage.getItem("logeado"));
         window.location = "index.html"
-    });
-
-    document.getElementById("logeado").addEventListener ("submit", function(event){
-            event.preventDefault();
-    });
-        */
-    
+    })
+    */
+    const usuarioNombre = localStorage.getItem("user");
     if (usuarioNombre) {
-               document.getElementById("nombre").textContent = usuarioNombre;
+        document.getElementById("nombre").textContent = usuarioNombre;
     } else {
-               document.getElementById("nombre").textContent = "logeate";
-    }
+        document.getElementById("nombre").textContent = "logeate";
+    } 
 });
 
 function Login_Check(){
