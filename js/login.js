@@ -8,6 +8,7 @@ document.getElementById("ingresar").addEventListener("click", function(e){
     }else {
         localStorage.setItem("logeado",true)
         window.location.href = "index.html"
-        localStorage.setItem("nombre", usuario);
-        window.location = "index.html"
+        localStorage.setItem("nombre", usuario)
+        window.location.href = "index.html"
+    }
 })

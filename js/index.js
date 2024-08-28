@@ -15,26 +15,27 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    /*
     document.getElementById("cerrar").addEventListener("click", function(){
         localStorage.setItem("logeado", false)
         console.log("cerrar:",localStorage.getItem("logeado"));
         window.location = "index.html"
+    });
 
     document.getElementById("logeado").addEventListener ("submit", function(event){
             event.preventDefault();
-        
-           
- if (usuarioNombre) {
+    });
+        */
+    
+    if (usuarioNombre) {
                document.getElementById("nombre").textContent = usuarioNombre;
-           } else {
+    } else {
                document.getElementById("nombre").textContent = "logeate";
-           }
-    }) 
+    }
 });
 
 function Login_Check(){
     if(localStorage.getItem("logeado")==="false"){
         alert("No estas logeado redireccionado")
         window.location = "login.html"
-    }}
-
+}}
