@@ -1,3 +1,6 @@
+const usuarioNombre = localStorage.getItem("nombre");     
+           
+
 document.addEventListener("DOMContentLoaded", function(){
     Login_Check()
     document.getElementById("autos").addEventListener("click", function() {
@@ -16,6 +19,16 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("logeado", false)
         console.log("cerrar:",localStorage.getItem("logeado"));
         window.location = "index.html"
+
+    document.getElementById("logeado").addEventListener ("submit", function(event){
+            event.preventDefault();
+        
+           
+ if (usuarioNombre) {
+               document.getElementById("nombre").textContent = usuarioNombre;
+           } else {
+               document.getElementById("nombre").textContent = "logeate";
+           }
     }) 
 });
 
@@ -24,3 +37,4 @@ function Login_Check(){
         alert("No estas logeado redireccionado")
         window.location = "login.html"
     }}
+
