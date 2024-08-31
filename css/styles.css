@@ -226,3 +226,9 @@ a.custom-card:hover {
     --rotate: 360deg;
   }
 }
+a{
+  color: orange;
+}
+a:hover{
+  color:orangered;
+}

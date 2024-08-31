@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded",()=>{
         const logoutBtn = document.createElement("button");
         const navbarNav = document.querySelector(".navbar-nav");
 
-        userP.textContent = `Bienvenid@, ${userName}`;
+        userP.innerHTML = ` <a href="my-profile.html">Bienvenid@, ${userName} </a>`;
+
         logoutBtn.textContent = "Cerrar sesión";
 
         userLi.className = "nav-item d-flex align-items-center";
@@ -27,6 +28,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 function Login_Check(){
     if(localStorage.getItem("logeado")==="false"){
-        alert("No estas logeado redireccionado")
-        window.location = "login.html"
+        Swal.fire({
+            icon: 'warning',
+            text: 'No estas Logeado Redireccionando al login',
+            timer:3000,
+        }).then(()=>{location.href = "login.html"})
+        
 }}
