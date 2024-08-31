@@ -1,45 +1,65 @@
+import hashPassword from "./hashpwd.js";
+
 document.addEventListener("DOMContentLoaded", function() {
-  const registrationForm = document.getElementById("registrationForm");
-  
-  registrationForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    const registrationForm = document.getElementById("registrationForm");
 
-      const firstName = document.getElementById("nombre").value.trim();
-      const lastName = document.getElementById("apellido").value.trim();
-      const email = document.getElementById("correo").value.trim();
-      const password = document.getElementById("contraseña").value.trim();
+    registrationForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-      // Validación para asegurarse de que no guarde ningun campo vacio
-      if (!firstName || !lastName || !email || !password) {
-          Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Todos los campos son obligatorios y no pueden estar vacíos.',
-              confirmButtonText: 'Aceptar'
-          });
-          return;
-      }
+        const firstName = document.getElementById("nombre").value.trim();
+        const lastName = document.getElementById("apellido").value.trim();
+        const email = document.getElementById("correo").value.trim();
+        const password = document.getElementById("contraseña").value.trim();
 
-      const user = {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          password: password
-      };
+        if (!firstName || !lastName || !email || !password) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Todos los campos son obligatorios y no pueden estar vacíos.',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
 
-      const users = JSON.parse(localStorage.getItem("users")) || [];
-      users.push(user);
-      localStorage.setItem("users", JSON.stringify(users));
-console.log(users);
+        // Obtener usuarios almacenados
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      Swal.fire({
-          icon: 'success',
-          title: '¡Datos Registrados con Éxito!',
-          text: 'Aguarde Mientras Re-direccionamos.',
-          timer: 3000,
-          confirmButtonText: 'Aceptar'
-      }).then(() => {
-          location.href = 'login.html';
-      });
-  });
+        // Verificar si el correo ya está en uso
+        const emailExists = users.some(user => user.email === email);
+
+        if (emailExists) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El correo electrónico ya se encuentra en uso.',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+
+        // Si el correo no está en uso, proceder con el registro
+        const hashedPassword = await hashPassword(password);
+
+        const newUser = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: hashedPassword
+        };
+
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        console.log(localStorage.getItem("users"));
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Datos Registrados con Éxito!',
+            text: 'Aguarde Mientras Re-direccionamos.',
+            timer: 3000,
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            location.href = 'login.html';
+        });
+    });
 });

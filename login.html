@@ -4,17 +4,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>eMercado - Todo lo que busques está aquí</title>
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/login.css">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
 </head>
 
 <body>
@@ -23,7 +19,7 @@
  
     <form>
         <label for="username">Nombre de usuario</label>
-        <input type="text" id="username" placeholder="Nombre de usuario" required>
+        <input type="text" id="username" placeholder="ejemplo@gmail.com..." required>
         <span id="usernameError" class="error-message"></span>
         
         
@@ -32,13 +28,14 @@
         <span id="passwordError" class="error-message"></span><br>
         <button type="submit" id="ingresar">Ingresa</button>
     </form>
+    <button type="submit" id="registrar">Registrate</button>
 </div>
   <footer class="text-muted">
     <div class="container">
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+  <script type="module" src="js/login.js"></script>
 </body>
 
 </html>
