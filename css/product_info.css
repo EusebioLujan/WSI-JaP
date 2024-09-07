@@ -1,0 +1,150 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a2a4f;
+    color: #333;
+}
+
+.containers {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    padding-left: 5%;
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px; 
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.main-image{
+    border-radius: 10px; 
+    width: 100%; 
+    margin:1%;
+    padding: 1%;
+}
+.car-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    
+}
+.car-div-main{
+    width: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px #003366;
+    font-weight: 600;
+}
+
+.car-details {
+    flex: 3;
+}
+
+.price {
+    font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 1.8rem;
+    color: green;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.description {
+    margin-top: 10px;
+    color: #666;
+    font-size: 1.2rem;
+    font-weight: 700; 
+    text-align: center;
+}
+
+.car-images {
+    height: 50%;
+    flex: 1;
+    margin:1%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.car-image{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 4px rgba(66, 21, 192, 0.2);
+}
+
+.car-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.sold-count {
+    font-size: 1.2rem;
+    color: #6b6bff;
+    text-align: center;
+    margin: 1%;
+}
+
+.car-secondary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.car {
+    flex: 1;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.car h3 {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.car img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.car .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a2a4f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.img-event{
+    cursor:pointer; 
+    border-radius: 10px; 
+    width: 100%; margin: 5px 0;
+}
+
