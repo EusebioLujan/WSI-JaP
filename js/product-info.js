@@ -60,14 +60,14 @@ function createProdInfo(Obj) {
     //en esta variable se esta guardando la url de main image
     let mainImageSrc = mainImage.src;
 
-    document.querySelectorAll(".car-images img").forEach((event) => {
-        event.addEventListener("click", function () {
+    document.querySelectorAll(".car-images img").forEach((element) => {
+        element.addEventListener("click", function () {
             //se guarda en la variable la url del evento click es decir la url de la imagen
-            let clickedImageSrc = event.src;
+            let clickedImageSrc = element.src;
             //se cambia la url main por la clickeada
             mainImage.src = clickedImageSrc;
             //se cambia la url de la miniatura por la clickeada 
-            event.src = mainImageSrc;
+            element.src = mainImageSrc;
             //aca se actualiza la variable con la url de la imagen clickeada
             mainImageSrc = clickedImageSrc;
         });
