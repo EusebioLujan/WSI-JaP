@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const lastName = document.getElementById("apellido").value.trim();
         const email = document.getElementById("correo").value.trim();
         const password = document.getElementById("contraseña").value.trim();
-
         if (!firstName || !lastName || !email || !password) {
             Swal.fire({
                 icon: 'error',
@@ -57,7 +56,17 @@ document.addEventListener("DOMContentLoaded", function() {
             title: '¡Datos Registrados con Éxito!',
             text: 'Aguarde Mientras Re-direccionamos.',
             timer: 3000,
-            confirmButtonText: 'Aceptar'
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                  timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+              },
+              willClose: () => {
+                clearInterval(timerInterval);
+              }
         }).then(() => {
             location.href = 'login.html';
         });

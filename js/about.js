@@ -1,7 +1,7 @@
 const about = document.getElementById("about");
 const DATA_URL = "https://api.github.com/users/";
 
-const user=["Eusebiolujan","Mauri-codes4","NahuelCampos99","Noelia2197","unombu"]
+const user=["Eusebiolujan","Mauri-codes4","NahuelCampos99","unombu"]
 
 user.map((github)=>{
     fetch(DATA_URL+github)

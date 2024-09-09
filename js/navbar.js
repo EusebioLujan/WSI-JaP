@@ -32,6 +32,17 @@ function Login_Check(){
             icon: 'warning',
             text: 'No estas Logeado Redireccionando al login',
             timer:3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                  timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+              },
+              willClose: () => {
+                clearInterval(timerInterval);
+              }
         }).then(()=>{location.href = "login.html"})
         
 }}
