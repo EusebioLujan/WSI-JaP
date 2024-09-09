@@ -164,3 +164,7 @@ input {
         padding: 5%;
     }
 }
+
+#filter-container {
+   padding-left: 5%;
+}
