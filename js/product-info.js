@@ -31,7 +31,7 @@ function createProdInfo(Obj) {
         </div>
     `).join('');
     // aqui se esta mapeando miniaturas y guardandola en una variable
-    const imagesHTML = miniaturas.map((image) => `
+    const imagesHTML = miniaturas.map((image,index) => `
         <img src="${image}" alt="Miniatura" class="img-event" data-index="${index + 1}">
     `).join('');
     //bloque de codigo que se inserta en el HTML
