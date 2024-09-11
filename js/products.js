@@ -17,9 +17,9 @@ function listadoProductos(productosFiltrados){
     for(let i = 0; i < productosFiltrados.length; i++){
 
         let product = productosFiltrados[i];
+
         if (((minPrice == undefined) || (minPrice != undefined && product.cost >= minPrice)) &&
         ((maxPrice == undefined) || (maxPrice != undefined && product.cost <= maxPrice))) { 
-        //row = fila , col = columna
         htmlContentToAppend += `
             <div class="card" onclick="setprodINFOID(${product.id})">
             <div class="image-details">
@@ -104,7 +104,6 @@ document.getElementById("cleanButton").addEventListener("click", function () {
 
   cargarProductos();
 });
-
 
 //PARA LA BUSQUEDA
 busqueda.addEventListener("input", function(){
