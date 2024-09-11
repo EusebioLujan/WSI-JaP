@@ -59,17 +59,18 @@
                 Ordenar por
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Más relevantes</a></li>
-                <li><a class="dropdown-item" href="#">Menor precio</a></li>
-                <li><a class="dropdown-item" href="#">Mayor precio</a></li>
+                <li><a class="dropdown-item" id="relevancia" >Más relevantes</a></li>
+                <li><a class="dropdown-item" id="menor">Menor precio</a></li>
+                <li><a class="dropdown-item" id="mayor">Mayor precio</a></li>
               </ul>
             </div>
           </div>
 
         <input
           class="form-control"
-          type="text"
+          type="search"
           placeholder="Busca tu producto aqui..."
+          id="searchBar"
         />
           <div class="row g-3 align-items-center mt-3">
 
@@ -90,6 +91,11 @@
                   </div>
               </div>
           </div>
+        <div id="notFound"></div>
+      </div>
+      <div>
+        <div class="container row center-block" id="probando"></div>
+      </div>
     </main>
     <footer class="text-muted">
       <div class="container">
