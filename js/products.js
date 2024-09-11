@@ -62,6 +62,11 @@ busqueda.addEventListener("input", function(){
             product.description.toLowerCase().includes(busqueda.value.trim().toLowerCase())){
                 arrayFiltrado.push(product);
         }
-        listadoProductos(arrayFiltrado);
+    }
+    listadoProductos(arrayFiltrado);
+    if(arrayFiltrado.length === 0){
+        document.getElementById("notFound").innerHTML = "<p>No hay coincidencias</p>";
+    } else {
+        document.getElementById("notFound").innerHTML = "";
     }
 })
