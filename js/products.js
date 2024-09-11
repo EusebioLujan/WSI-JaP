@@ -1,6 +1,8 @@
 let productsArray = [];
 let categoryID = localStorage.getItem("catID");
 let busqueda = document.getElementById("searchBar");
+let minPrice = undefined;
+let maxPrice = undefined;
 
 function setprodINFOID(id){
     localStorage.setItem("prodINFOID",id);
@@ -15,7 +17,8 @@ function listadoProductos(productosFiltrados){
     for(let i = 0; i < productosFiltrados.length; i++){
 
         let product = productosFiltrados[i];
-
+        if (((minPrice == undefined) || (minPrice != undefined && product.cost >= minPrice)) &&
+        ((maxPrice == undefined) || (maxPrice != undefined && product.cost <= maxPrice))) { 
         //row = fila , col = columna
         htmlContentToAppend += `
             <div class="card" onclick="setprodINFOID(${product.id})">
@@ -33,7 +36,7 @@ function listadoProductos(productosFiltrados){
                 </p>
                 </div>
             </div>
-            `
+            `}
     }
     document.getElementById("probando").innerHTML = htmlContentToAppend;
 };
@@ -51,7 +54,57 @@ function cargarProductos(){
             listadoProductos(productsArray);
         }
     });
-}
+};
+
+document.getElementById("filterButton").addEventListener("click", function () {
+  // Obtener valores de los inputs de precio
+  minPrice = document.getElementById("minPrice").value;
+  maxPrice = document.getElementById("maxPrice").value;
+
+  if (minPrice !== "" && parseInt(minPrice) >= 0) {
+    minPrice = parseInt(minPrice);
+  } else {
+    minPrice = undefined;
+  }
+
+  if (maxPrice !== "" && parseInt(maxPrice) >= 0) {
+    maxPrice = parseInt(maxPrice);
+  } else {
+    maxPrice = undefined;
+  }
+
+  cargarProductos();
+});
+
+  document.getElementById("mayor").addEventListener("click", function(){
+
+    productsArray.sort((a, b)=>b.cost - a.cost);
+    listadoProductos(productsArray);
+    })
+
+document.getElementById("menor").addEventListener("click", function(){
+
+  productsArray.sort((a, b)=>a.cost - b.cost);
+  listadoProductos(productsArray);
+  })
+
+  document.getElementById("relevancia").addEventListener("click", function(){
+
+    productsArray.sort((a, b)=>b.soldCount - a.soldCount);
+    listadoProductos(productsArray);
+    })
+
+document.getElementById("cleanButton").addEventListener("click", function () {
+  // Limpiar los campos de los inputs
+  document.getElementById("minPrice").value = "";
+  document.getElementById("maxPrice").value = "";
+  
+  minPrice = undefined;
+  maxPrice = undefined;
+
+  cargarProductos();
+});
+
 
 //PARA LA BUSQUEDA
 busqueda.addEventListener("input", function(){
