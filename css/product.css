@@ -72,13 +72,14 @@ input {
 
 .sold-info {
     font-size: 10px;
-    color: #777;
+    color: #6b6bff;
 }
 
 .price {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
+    color:green
 }
 
 .description {
