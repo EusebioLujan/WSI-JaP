@@ -52,12 +52,45 @@
     <main class="container">
       <div class="form-group container-search">
         <h1 id="categoryName"></h1>
+          
+          <div class="col-auto ms-auto">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar por
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" id="relevancia" >Más relevantes</a></li>
+                <li><a class="dropdown-item" id="menor">Menor precio</a></li>
+                <li><a class="dropdown-item" id="mayor">Mayor precio</a></li>
+              </ul>
+            </div>
+          </div>
+
         <input
           class="form-control"
           type="search"
           placeholder="Busca tu producto aqui..."
           id="searchBar"
         />
+          <div class="row g-3 align-items-center mt-3">
+
+            <div id="filter-container" class="col-auto">
+              <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                      <label for="minPrice" class="col-form-label">Precio</label>
+                  </div>
+                  <div class="col-auto">
+                      <input type="number" id="minPrice" class="form-control form-control-sm" placeholder="Mínimo" style="width: 100px;">
+                  </div>
+                  <div class="col-auto">
+                      <input type="number" id="maxPrice" class="form-control form-control-sm" placeholder="Máximo" style="width: 100px;">
+                  </div>
+                  <div class="col-auto">
+                      <button id="filterButton" class="btn btn-primary btn-sm">Filtrar</button>
+                      <button id="cleanButton" class="btn btn-light btn-sm">Limpiar</button>
+                  </div>
+              </div>
+          </div>
         <div id="notFound"></div>
       </div>
       <div>
