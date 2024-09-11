@@ -49,3 +49,59 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
+let minPrice = undefined;
+let maxPrice = undefined;
+let currentProductsArray = []; 
+
+function showProductsList() {
+  let htmlContentToAppend = "";
+  
+  for (let i = 0; i < currentProductsArray.length; i++) {
+    let product = currentProductsArray[i];
+
+    // Filtrar productos que estén dentro del rango de precios
+    if (((minPrice == undefined) || (minPrice != undefined && product.price >= minPrice)) &&
+        ((maxPrice == undefined) || (maxPrice != undefined && product.price <= maxPrice))) {
+
+      htmlContentToAppend += `
+        <div class="list-group-item">
+          <h4>${product.name}</h4>
+          <p>Precio: ${product.price}</p>
+        </div>`;
+    }
+  }
+  
+  document.getElementById("probando").innerHTML = htmlContentToAppend;
+}
+
+document.getElementById("filterButton").addEventListener("click", function () {
+  // Obtener valores de los inputs de precio
+  minPrice = document.getElementById("minPrice").value;
+  maxPrice = document.getElementById("maxPrice").value;
+
+  if (minPrice !== "" && parseInt(minPrice) >= 0) {
+    minPrice = parseInt(minPrice);
+  } else {
+    minPrice = undefined;
+  }
+
+  if (maxPrice !== "" && parseInt(maxPrice) >= 0) {
+    maxPrice = parseInt(maxPrice);
+  } else {
+    maxPrice = undefined;
+  }
+
+  showProductsList();
+});
+
+document.getElementById("cleanButton").addEventListener("click", function () {
+  // Limpiar los campos de los inputs
+  document.getElementById("minPrice").value = "";
+  document.getElementById("maxPrice").value = "";
+  
+  minPrice = undefined;
+  maxPrice = undefined;
+
+  showProductsList();
+});
