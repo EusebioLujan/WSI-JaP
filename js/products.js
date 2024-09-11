@@ -1,19 +1,20 @@
 let productsArray = [];
-let categoryID = localStorage.getItem("catID")
+let categoryID = localStorage.getItem("catID");
+let busqueda = document.getElementById("searchBar");
 
 function setprodINFOID(id){
     localStorage.setItem("prodINFOID",id);
     window.location = "product-info.html"
 }
 
-function listadoProductos(){
+function listadoProductos(productosFiltrados){
 
     let htmlContentToAppend = "";
 
     //Para cada producto en el productsArray, lo muestro en el listado
-    for(let i = 0; i < productsArray.length; i++){
+    for(let i = 0; i < productosFiltrados.length; i++){
 
-        let product = productsArray[i];
+        let product = productosFiltrados[i];
 
         //row = fila , col = columna
         htmlContentToAppend += `
@@ -38,14 +39,34 @@ function listadoProductos(){
 };
 
 //Usa la funcion getJSONData que esta en init.js que me da los objetos en formato JSON
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", cargarProductos);
+
+function cargarProductos(){
     const catName= document.getElementById("categoryName")
     let autos = PRODUCTS_URL + categoryID + EXT_TYPE;
     getJSONData(autos).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data.products; 
             catName.innerHTML = resultObj?.data?.catName
-            listadoProductos();
+            listadoProductos(productsArray);
         }
     });
-});
+}
+
+//PARA LA BUSQUEDA
+busqueda.addEventListener("input", function(){
+    let arrayFiltrado = [];
+    for(let i = 0; i < productsArray.length; i++){
+        let product = productsArray[i];
+        if ( product.name.toLowerCase().includes(busqueda.value.trim().toLowerCase()) || 
+            product.description.toLowerCase().includes(busqueda.value.trim().toLowerCase())){
+                arrayFiltrado.push(product);
+        }
+    }
+    listadoProductos(arrayFiltrado);
+    if(arrayFiltrado.length === 0){
+        document.getElementById("notFound").innerHTML = "<p>No hay coincidencias</p>";
+    } else {
+        document.getElementById("notFound").innerHTML = "";
+    }
+})
