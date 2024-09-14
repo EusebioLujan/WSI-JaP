@@ -6,6 +6,12 @@ body {
     box-sizing: border-box;
 }
 
+hr {
+    margin-top: 10%;
+}
+a{
+    cursor: pointer;
+}
 main {
     margin-top: 2%;
     display: flex;
@@ -17,10 +23,6 @@ main {
     width: 40%;
     padding: 2%;
     border-right: 1px solid #91919142;
-}
-
-input {
-    margin-top: 5%;
 }
 
 .card {
@@ -49,6 +51,12 @@ input {
 
 .image-details {
     padding: 3%;
+}
+.cleanButton{
+    border-color: #0f212e44;
+}
+.cleanButton:hover{
+    background-color: #d1d1d1;
 }
 
 .card-content {
@@ -79,7 +87,7 @@ input {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
-    color:green
+    color: green;
 }
 
 .description {
@@ -95,13 +103,52 @@ input {
     background-color: #ebebeb;
 }
 
+.priceInput {
+    width: 80px;
+    font-size: 12px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.precio {
+    font-size: 14px;
+}
+
+.dropdown-toggle {
+    background-color: #002fffab;
+}
+
+.dropdown-toggle:hover {
+    background-color: #2900bd;
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.dropdown-item {
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #dddddd;
+    color: #000;
+}
+
+/* Media Queries */
 @media (min-width: 1080px) {
     .card {
         width: 350px;
         margin: 20px;
     }
     .container-search {
-        width: 40%;
+        width: 600px;
     }
 }
 
@@ -120,8 +167,11 @@ input {
         font-size: 13px;
     }
     .container-search {
-        width: 60%;
+        width: 70%;
+        overflow-x: auto;
+        padding: 2%;
     }
+    
 }
 
 @media (max-width: 768px) {
@@ -145,6 +195,10 @@ input {
         width: 100%;
         border-right: none;
     }
+    #filter-container{
+        margin-top: 1%;
+    }
+    
 }
 
 @media (max-width: 480px) {
@@ -164,32 +218,7 @@ input {
     .container-search {
         padding: 5%;
     }
-}
-
-#filter-container {
-   padding-left: 5%;
-}
-
- .dropdown-toggle {
-    background-color: #002fffab; 
-}
-
-.dropdown-toggle:hover {
-    background-color: #2900bd; 
-}
-
-.dropdown-menu {
-    background-color: #ffffff; 
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); 
-    border-radius: 8px; 
-}
-
-.dropdown-item {
-    color: #333; 
-    padding: 10px 20px; 
-}
-
-.dropdown-item:hover {
-    background-color: #dddddd;
-    color: #000; 
+    #filter-container{
+        margin-top: 8%;
+    }
 }
