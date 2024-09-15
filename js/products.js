@@ -52,15 +52,22 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 let minPrice = undefined;
 let maxPrice = undefined;
-let currentProductsArray = []; 
+let currentProductsArray = [];
+let sortOrder = ""; // Variable para almacenar el orden de clasificación
 
 function showProductsList() {
   let htmlContentToAppend = "";
   
+  if (sortOrder === "asc") {
+    currentProductsArray.sort((a, b) => a.price - b.price);
+  } else if (sortOrder === "desc") {
+    currentProductsArray.sort((a, b) => b.price - a.price);
+  }
+
   for (let i = 0; i < currentProductsArray.length; i++) {
     let product = currentProductsArray[i];
 
-    // Filtrar productos que estén dentro del rango de precios
+    // Filtrar productos que estén en el rango 
     if (((minPrice == undefined) || (minPrice != undefined && product.price >= minPrice)) &&
         ((maxPrice == undefined) || (maxPrice != undefined && product.price <= maxPrice))) {
 
@@ -76,7 +83,7 @@ function showProductsList() {
 }
 
 document.getElementById("filterButton").addEventListener("click", function () {
-  // Obtener valores de los inputs de precio
+  
   minPrice = document.getElementById("minPrice").value;
   maxPrice = document.getElementById("maxPrice").value;
 
@@ -96,7 +103,7 @@ document.getElementById("filterButton").addEventListener("click", function () {
 });
 
 document.getElementById("cleanButton").addEventListener("click", function () {
-  // Limpiar los campos de los inputs
+  
   document.getElementById("minPrice").value = "";
   document.getElementById("maxPrice").value = "";
   
@@ -104,4 +111,20 @@ document.getElementById("cleanButton").addEventListener("click", function () {
   maxPrice = undefined;
 
   showProductsList();
+});
+
+// Manejador de eventos para el menú desplegable 
+document.querySelectorAll(".dropdown-menu .dropdown-item").forEach(item => {
+  item.addEventListener("click", function (event) {
+    let selectedOption = event.target.textContent;
+    if (selectedOption === "Menor precio") {
+      sortOrder = "asc";
+    } else if (selectedOption === "Mayor precio") {
+      sortOrder = "desc";
+    } else {
+      sortOrder = ""; 
+    }
+
+    showProductsList();
+  });
 });
