@@ -148,3 +148,7 @@ h1::after {
     width: 100%; margin: 5px 0;
 }
 
+.comment{
+    background-color: antiquewhite;
+
+}
