@@ -159,7 +159,7 @@ h1::after {
     display: inline-block;
     position: relative;
     left: 35%;
-    top: -1160px;
+    top: -79vh;
 }
 .star-rating input{
     display: none;
@@ -174,3 +174,8 @@ h1::after {
 .star-rating label:hover ~ label{
     color: gold;
 }
+
+
+
+<!-- left: 35%;
+top: -1160px; -->

@@ -72,11 +72,7 @@ function createProdInfo(Obj,comments) {
             </div>
             
         </div>
-        <div class="comment"> ${commentsHTML}
-
-        <p> aca pondria un comentario si tuviera uno</p>
-
-        </div>
+        
         
         <div class="car-secondary">
             ${relatedProducts}
