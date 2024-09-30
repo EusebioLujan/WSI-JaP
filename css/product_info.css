@@ -148,3 +148,55 @@ h1::after {
     width: 100%; margin: 5px 0;
 }
 
+.comment{
+    background-color: antiquewhite;
+
+}
+.star-rating{
+    direction: rtl;
+    font-size: 2rem;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+    position: relative;
+    left: 35%;
+    top: -79vh;
+}
+.star-rating input{
+    display: none;
+}
+.star-rating label{
+    color: #ccc;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color: gold;
+}
+@media (max-width: 768px){
+
+.star-rating{
+    left: 24%;
+    top: -79vh;
+}
+}
+@media (max-width: 425px){
+
+    .star-rating{
+        left: 33%;
+        top: -59vh;
+    }
+}
+@media (max-width: 320px){
+
+.star-rating{
+    left: 19%;
+    top: -54vh;
+}
+}
+
+
+
+<!-- left: 35%;
+top: -1160px; -->
