@@ -183,9 +183,9 @@ h1::after {
 }
 @media (max-width: 425px){
 
-    .star-rating{
-        left: 33%;
-        top: -59vh;
+.star-rating{
+    left: 33%;
+    top: -59vh;
     }
 }
 @media (max-width: 320px){
