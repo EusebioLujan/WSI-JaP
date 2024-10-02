@@ -43,7 +43,7 @@ function listadoProductos(productosFiltrados){
 
 //Usa la funcion getJSONData que esta en init.js que me da los objetos en formato JSON
 document.addEventListener("DOMContentLoaded", cargarProductos);
-
+//
 function cargarProductos(){
     const catName= document.getElementById("categoryName")
     let autos = PRODUCTS_URL + categoryID + EXT_TYPE;
@@ -55,7 +55,7 @@ function cargarProductos(){
         }
     });
 };
-
+//
 document.getElementById("filterButton").addEventListener("click", function () {
   // Obtener valores de los inputs de precio
   minPrice = document.getElementById("minPrice").value;
@@ -104,7 +104,7 @@ document.getElementById("cleanButton").addEventListener("click", function () {
 
   cargarProductos();
 });
-
+//
 //PARA LA BUSQUEDA
 busqueda.addEventListener("input", function(){
     let arrayFiltrado = [];
@@ -122,3 +122,4 @@ busqueda.addEventListener("input", function(){
         document.getElementById("notFound").innerHTML = "";
     }
 })
+//

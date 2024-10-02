@@ -1,15 +1,22 @@
 const idInfo = localStorage.getItem("prodINFOID");
 const container_info = document.getElementById("container-info");
+const comment = PRODUCT_INFO_COMMENTS_URL + idInfo + EXT_TYPE;
+const prodInfo = PRODUCT_INFO_URL + idInfo + EXT_TYPE;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Inicio el fetch para utilizar la data del localStorage
-    let prodInfo = PRODUCT_INFO_URL + idInfo + EXT_TYPE;
-    getJSONData(prodInfo).then((data) => {
-        if (data.status === "ok") {
-            const prodInfoArray = data.data;
-            createProdInfo(prodInfoArray);
+    Promise.all([
+        getJSONData(prodInfo),
+        getJSONData(comment)
+    ]).then(([prodData,commentData])=>{
+        if(prodData.status==="ok" &&commentData.status==="ok"){
+            const prodInfoArray=prodData.data;
+            const commentArray = commentData.data
+            createProdInfo(prodInfoArray,commentArray)
         }
-    });
+    })
+    
+
 });
 //se setea en el localstorage las id para poder trabajarlo en los productos relacionados
 function setrelatedproductID(id){
@@ -17,7 +24,8 @@ function setrelatedproductID(id){
     window.location = "product-info.html"
 }
 
-function createProdInfo(Obj) {
+function createProdInfo(Obj,comments) {
+    
     //se seleciona con el slice las imagenes que esten en la pisicion 1 y 4 pero el slice el ultimo numero no te lo incluye entonces serian 3 imagenes
     let miniaturas = Obj.images.slice(1, 4); 
     //aqui estoy mapeando los productos relacionados y utilizando el join para unirlos en una sola cadena para insertarlo en el html
@@ -34,6 +42,16 @@ function createProdInfo(Obj) {
     const imagesHTML = miniaturas.map((image,index) => `
         <img src="${image}" alt="Miniatura" class="img-event" data-index="${index + 1}">
     `).join('');
+        //
+        const commentsHTML = comments.map(comment => `
+            <div>
+                <p>${comment.dateTime}</p>
+                <p>${comment.description}</p>
+                <p>${comment.score}</p>
+                <p>${comment.user}</p>
+            </div>
+        `).join('');
+        //
     //bloque de codigo que se inserta en el HTML
     container_info.innerHTML = `
         <h1>${Obj.category}</h1>
@@ -45,12 +63,17 @@ function createProdInfo(Obj) {
                 </div>
                 <p class="description">${Obj.description}</p>
                 <p class="price">${Obj.currency} ${Obj.cost}</p>
+                
             </div>
+            
             <div class="car-images">
                 ${imagesHTML}
                 <p class="sold-count">${Obj.soldCount} vendidos</p>
             </div>
+            
         </div>
+        
+        
         <div class="car-secondary">
             ${relatedProducts}
         </div>
