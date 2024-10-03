@@ -77,11 +77,30 @@ function createProdInfo(Obj,comments) {
           
           <input type="radio" id="star1" name="rating" value="1">
           <label for="star1">&#9733;</label>
-      </div>
+          </div> 
+
+        
+      
                 
                 <p class="price">${Obj.currency} ${Obj.cost}</p>
+                  <div
+          <input type="text" class="form-control mt-3" placeholder="Tu nombre" id="input-name" required>
+
+          <!-- fecha -->
+          <input type="date" class="form-control mt-3" id="input-date" required>
+
+          <!-- opinión -->
+          <textarea class="form-control mt-3" placeholder="Escribe tu opinión aquí..." rows="3"></textarea>
+          
+          <!-- Boton para enviar -->
+          <button class="btn btn-primary mt-3 ms-auto d-block">Enviar</button>
+          
+          <div id="comments-container"></div>
+    </div>
                 
             </div>
+
+            
             
             <div class="car-images">
                 ${imagesHTML}
