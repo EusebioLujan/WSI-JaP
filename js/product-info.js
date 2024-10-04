@@ -2,6 +2,8 @@ const idInfo = localStorage.getItem("prodINFOID");
 const container_info = document.getElementById("container-info");
 const comment = PRODUCT_INFO_COMMENTS_URL + idInfo + EXT_TYPE;
 const prodInfo = PRODUCT_INFO_URL + idInfo + EXT_TYPE;
+let commentArray = [];
+let prodInfoArray = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     // Inicio el fetch para utilizar la data del localStorage
@@ -10,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         getJSONData(comment)
     ]).then(([prodData,commentData])=>{
         if(prodData.status==="ok" &&commentData.status==="ok"){
-            const prodInfoArray=prodData.data;
-            const commentArray = commentData.data
+            prodInfoArray=prodData.data;
+            commentArray = commentData.data
             createProdInfo(prodInfoArray,commentArray)
         }
     })
@@ -90,10 +92,10 @@ function createProdInfo(Obj,comments) {
           <input type="date" class="form-control mt-3" id="input-date" required>
 
           <!-- opinión -->
-          <textarea class="form-control mt-3" placeholder="Escribe tu opinión aquí..." rows="3"></textarea>
+          <textarea class="form-control mt-3" placeholder="Escribe tu opinión aquí..." rows="3" id="comentario"></textarea>
           
           <!-- Boton para enviar -->
-          <button class="btn btn-primary mt-3 ms-auto d-block">Enviar</button>
+          <button class="btn btn-primary mt-3 ms-auto d-block" id="enviar-opinion">Enviar</button>
           
           <div id="comments-container"></div>
     </div>
@@ -143,42 +145,95 @@ function createProdInfo(Obj,comments) {
 }
 
 
-//O LO Q SEA Q USEMOS PARA SE ENVIE, asumo q es un boton
-document.getElementById("enviar-opinion").addEventListener("click", function(){
-    let fechaActual = new Date();
-    let fecha = `${fechaActual.getFullYear()}-${String(fechaActual.getMonth() + 1).padStart(2, '0')}-${String(fechaActual.getDate()).padStart(2, '0')} ${String(fechaActual.getHours()).padStart(2, '0')}:${String(fechaActual.getMinutes()).padStart(2, '0')}:${String(fechaActual.getSeconds()).padStart(2, '0')}`;
+// score o estrellitas
+let score;
+document.addEventListener('change', function(event) {
+    // Verificamos si el elemento que disparó el evento está dentro del contenedor con la clase 'star-rating'
+    if (event.target.closest('.star-rating') && event.target.matches('input[type="radio"]')) {
+        score = event.target.value; // Guardamos el valor del score seleccionado
+        console.log("Score seleccionado: " + score); // Verificamos que funcione correctamente
+    }
+});
 
-    console.log(fecha);  
-    //dios sabra si esto funca
+// Event listener para el botón de enviar comentario
+document.addEventListener("click", function(event) {
+    if (event.target && event.target.id === "enviar-opinion") {
+        let fechaActual = new Date();
+        let fecha = `${fechaActual.getFullYear()}-${String(fechaActual.getMonth() + 1).padStart(2, '0')}-${String(fechaActual.getDate()).padStart(2, '0')} ${String(fechaActual.getHours()).padStart(2, '0')}:${String(fechaActual.getMinutes()).padStart(2, '0')}:${String(fechaActual.getSeconds()).padStart(2, '0')}`;
 
-    //O COMO SEA Q SE LLAME EL ESPACIO PARA COMENTAR
-    let desc = document.getElementById("comentario").value.trim();
+        console.log(fecha);  
 
-    //ESTRELLITAS
-    let score;
-    document.getElementById("").addEventListener('change', (event) => {
-        if (event.target.matches('input[type="radio"]')) {
-          score = event.target.value;
+        let desc = document.getElementById("comentario").value.trim();
+        
+        // Verificamos si se ha seleccionado un puntaje antes de enviar la opinión
+        if (!score) {
+            alert("Debe calificar el producto para enviar su opinion");
+            return;
         }
-    });
 
-    //FALTA USUARIO Q ASUMO Q LO SACO DE LOCAL STORAGE
+        let usuario = localStorage.getItem("user");
 
-    let nuevaOpinion = {
-        dateTime : fecha,
-        description : desc,
-        score : score,
-        user : usuario
-    };
-    Promise.all([
-        getJSONData(prodInfo),
-        getJSONData(comment)
-    ]).then(([prodData,commentData])=>{
-        if(prodData.status==="ok" &&commentData.status==="ok"){
-            const prodInfoArray=prodData.data;
-            const commentArray = commentData.data;
-            commentArray.push(nuevaOpinion)
-            createProdInfo(prodInfoArray,commentArray)
-        }
-    })
-})
+        let nuevaOpinion = {
+            dateTime : fecha,
+            description : desc,
+            score : score, 
+            user : usuario
+        };
+
+        commentArray.push(nuevaOpinion);
+        createProdInfo(prodInfoArray, commentArray); // Se vuelve a generar la vista con los nuevos datos
+        score = undefined;
+    }
+});
+
+
+
+
+
+
+
+// //O LO Q SEA Q USEMOS PARA SE ENVIE, asumo q es un boton
+// document.addEventListener("click", function(event) {
+//     let score;
+//     if (event.target && event.target.class === "star-rating") {
+//         event.target.addEventListener('change', (event) => {
+//             if (event.target.matches('input[type="radio"]')) {
+//               score = event.target.value;
+//             }
+//         });
+//     } else if (event.target && event.target.id === "enviar-opinion") {
+//         let fechaActual = new Date();
+//     let fecha = `${fechaActual.getFullYear()}-${String(fechaActual.getMonth() + 1).padStart(2, '0')}-${String(fechaActual.getDate()).padStart(2, '0')} ${String(fechaActual.getHours()).padStart(2, '0')}:${String(fechaActual.getMinutes()).padStart(2, '0')}:${String(fechaActual.getSeconds()).padStart(2, '0')}`;
+
+//     console.log(fecha);  
+//     //dios sabra si esto funca
+
+//     //O COMO SEA Q SE LLAME EL ESPACIO PARA COMENTAR
+//     let desc = document.getElementById("comentario").value.trim();
+
+//     //ESTRELLITAS
+    
+//     console.log(localStorage)
+
+//     //FALTA USUARIO Q ASUMO Q LO SACO DE LOCAL STORAGE
+//     let usuario =localStorage.getItem("user")
+
+//     let nuevaOpinion = {
+//         dateTime : fecha,
+//         description : desc,
+//         score : score,
+//         user : usuario
+//     };
+//     Promise.all([
+//         getJSONData(prodInfo),
+//         getJSONData(comment)
+//     ]).then(([prodData,commentData])=>{
+//         if(prodData.status==="ok" &&commentData.status==="ok"){
+//             const prodInfoArray=prodData.data;
+//             const commentArray = commentData.data;
+//             commentArray.push(nuevaOpinion)
+//             createProdInfo(prodInfoArray,commentArray)
+//         }
+//     })
+//     }
+// });
