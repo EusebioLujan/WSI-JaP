@@ -63,24 +63,44 @@ function createProdInfo(Obj,comments) {
                 </div>
                 <p class="description">${Obj.description}</p>
                 <div class="star-rating">
-        <input type="radio" id="star5" name="rating" value="5">
-        <label for="star5">&#9733;</label>
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5">&#9733;</label>
+          
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4">&#9733;</label>
+          
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3">&#9733;</label>
+          
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2">&#9733;</label>
+          
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1">&#9733;</label>
+          </div> 
+
         
-        <input type="radio" id="star4" name="rating" value="4">
-        <label for="star4">&#9733;</label>
-        
-        <input type="radio" id="star3" name="rating" value="3">
-        <label for="star3">&#9733;</label>
-        
-        <input type="radio" id="star2" name="rating" value="2">
-        <label for="star2">&#9733;</label>
-        
-        <input type="radio" id="star1" name="rating" value="1">
-        <label for="star1">&#9733;</label>
-    </div>
+      
+                
                 <p class="price">${Obj.currency} ${Obj.cost}</p>
+                  <div
+          <input type="text" class="form-control mt-3" placeholder="Tu nombre" id="input-name" required>
+
+          <!-- fecha -->
+          <input type="date" class="form-control mt-3" id="input-date" required>
+
+          <!-- opinión -->
+          <textarea class="form-control mt-3" placeholder="Escribe tu opinión aquí..." rows="3"></textarea>
+          
+          <!-- Boton para enviar -->
+          <button class="btn btn-primary mt-3 ms-auto d-block">Enviar</button>
+          
+          <div id="comments-container"></div>
+    </div>
                 
             </div>
+
+            
             
             <div class="car-images">
                 ${imagesHTML}

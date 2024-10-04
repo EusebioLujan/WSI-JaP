@@ -159,6 +159,8 @@ h1::after {
     unicode-bidi: bidi-override;
     display: inline-block;
     position: relative;
+    left: 35%;
+    top: 9vh;
 }
 .star-rating input{
     display: none;
@@ -173,24 +175,31 @@ h1::after {
 .star-rating label:hover ~ label{
     color: gold;
 }
+@media (max-width: 1080px){
+
+.star-rating{
+    left: 30%;
+    top: 11vh;
+}
+}
 @media (max-width: 768px){
 
 .star-rating{
     left: 24%;
-    top: -79vh;
+    top: 11vh;
 }
 }
 @media (max-width: 425px){
 
 .star-rating{
-    left: 33%;
-    top: -59vh;
+    left: 45%;
+    top: -0vh;
     }
 }
 @media (max-width: 320px){
 
 .star-rating{
     left: 19%;
-    top: -54vh;
+    top: -0vh;
 }
 }
