@@ -145,7 +145,8 @@ h1::after {
 .img-event{
     cursor:pointer; 
     border-radius: 10px; 
-    width: 100%; margin: 5px 0;
+    width: 100%; 
+    margin: 5px 0;
 }
 
 .comment{
@@ -158,8 +159,6 @@ h1::after {
     unicode-bidi: bidi-override;
     display: inline-block;
     position: relative;
-    left: 35%;
-    top: -79vh;
 }
 .star-rating input{
     display: none;
@@ -183,9 +182,9 @@ h1::after {
 }
 @media (max-width: 425px){
 
-    .star-rating{
-        left: 33%;
-        top: -59vh;
+.star-rating{
+    left: 33%;
+    top: -59vh;
     }
 }
 @media (max-width: 320px){
