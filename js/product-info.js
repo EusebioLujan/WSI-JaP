@@ -90,6 +90,15 @@ function createProdInfo(Obj,comments) {
             
         </div>
         
+        <div class="comment"> ${commentsHTML}
+
+        <p> aca pondria un comentario si tuviera uno</p>
+
+        </div>
+        
+        <div class="car-secondary">
+            ${relatedProducts}
+        </div>
         
         <div class="car-secondary">
             ${relatedProducts}
@@ -114,3 +123,43 @@ function createProdInfo(Obj,comments) {
     });
 }
 
+
+//O LO Q SEA Q USEMOS PARA SE ENVIE, asumo q es un boton
+document.getElementById("enviar-opinion").addEventListener("click", function(){
+    let fechaActual = new Date();
+    let fecha = `${fechaActual.getFullYear()}-${String(fechaActual.getMonth() + 1).padStart(2, '0')}-${String(fechaActual.getDate()).padStart(2, '0')} ${String(fechaActual.getHours()).padStart(2, '0')}:${String(fechaActual.getMinutes()).padStart(2, '0')}:${String(fechaActual.getSeconds()).padStart(2, '0')}`;
+
+    console.log(fecha);  
+    //dios sabra si esto funca
+
+    //O COMO SEA Q SE LLAME EL ESPACIO PARA COMENTAR
+    let desc = document.getElementById("comentario").value.trim();
+
+    //ESTRELLITAS
+    let score;
+    document.getElementById("").addEventListener('change', (event) => {
+        if (event.target.matches('input[type="radio"]')) {
+          score = event.target.value;
+        }
+    });
+
+    //FALTA USUARIO Q ASUMO Q LO SACO DE LOCAL STORAGE
+
+    let nuevaOpinion = {
+        dateTime : fecha,
+        description : desc,
+        score : score,
+        user : usuario
+    };
+    Promise.all([
+        getJSONData(prodInfo),
+        getJSONData(comment)
+    ]).then(([prodData,commentData])=>{
+        if(prodData.status==="ok" &&commentData.status==="ok"){
+            const prodInfoArray=prodData.data;
+            const commentArray = commentData.data;
+            commentArray.push(nuevaOpinion)
+            createProdInfo(prodInfoArray,commentArray)
+        }
+    })
+})
