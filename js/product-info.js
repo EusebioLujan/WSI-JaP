@@ -85,11 +85,8 @@ function createProdInfo(Obj,comments) {
       
                 
                 <p class="price">${Obj.currency} ${Obj.cost}</p>
-                  <div
-          <input type="text" class="form-control mt-3" placeholder="Tu nombre" id="input-name" required>
+                  <div>
 
-          <!-- fecha -->
-          <input type="date" class="form-control mt-3" id="input-date" required>
 
           <!-- opinión -->
           <textarea class="form-control mt-3" placeholder="Escribe tu opinión aquí..." rows="3" id="comentario"></textarea>
