@@ -148,19 +148,88 @@ h1::after {
     width: 100%; 
     margin: 5px 0;
 }
-
+.relatedTitle{
+    margin-bottom: 30px;
+}
+/*CSS PARA COMENTARIOS*/
 .comment{
-    background-color: antiquewhite;
+    max-width: 960px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    padding: 1%;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #cae3e283;
 
 }
+.commentsData{
+    display: flex;
+    justify-content: space-between;
+}
+.commentsNS{
+    display: flex;
+}
+#userC{
+    margin-right: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.even-comment {
+    border-bottom: solid 1px #00000046;
+    padding: 2%;
+    background-color: #ffffffb9;
+  }
+  
+  .odd-comment {
+    border-bottom: solid 1px #00000046;
+    padding: 2%;
+    background-color: #f0f0f0e5;
+  }
+  .star-filled {
+    font-size: 1.5rem;
+    color: gold; 
+  }
+  
+  .star-empty {
+    font-size: 1.5rem;
+    color: #ccc; 
+  }
+  
+/* RESEÑA*/
+.mainReseña{
+    padding: 1%;
+    max-width: 691px;
+}
+.styleReseña{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.styleTB{
+     position: relative;
+  width: 100%;
+}
+.styleTB textarea{
+    height: 150px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #cae3e283;
+}
+
+.styleReseña h3{
+    margin-top: auto;
+    margin-right: 20px;
+}
+#enviar-opinion {
+    position: absolute;
+    bottom: 10px;
+    left: 88%;
+    z-index: 1;
+    padding: 5px 10px;
+  }
+/**/
 .star-rating{
-    direction: rtl;
     font-size: 2rem;
-    unicode-bidi: bidi-override;
-    display: inline-block;
-    position: relative;
-    left: 35%;
-    top: 9vh;
 }
 .star-rating input{
     display: none;
@@ -175,31 +244,214 @@ h1::after {
 .star-rating label:hover ~ label{
     color: gold;
 }
-@media (max-width: 1080px){
+@media (max-width: 1080px) {
+    .car-main {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+    }
+    
+    .car-details {
+        order: 1; /* Asegura que los detalles del coche estén primero */
+    }
 
-.star-rating{
-    left: 30%;
-    top: 11vh;
-}
-}
-@media (max-width: 768px){
-
-.star-rating{
-    left: 24%;
-    top: 11vh;
-}
-}
-@media (max-width: 425px){
-
-.star-rating{
-    left: 45%;
-    top: -0vh;
+    .car-images {
+        order: 2; /* Asegura que las imágenes del coche estén después */
+    }
+    
+    .car {
+        margin-right: 0; /* Elimina el margen en pantallas más pequeñas */
+        margin-bottom: 20px; /* Agrega un margen inferior para separación */
+    }
+    .mainReseña{
+        margin: auto;
+      }
+      .price{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: xx-large;
+    }
+    .sold-count{
+        font-size: xx-large;
     }
 }
-@media (max-width: 320px){
 
-.star-rating{
-    left: 19%;
-    top: -0vh;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Ajusta el tamaño del encabezado */
+    }
+
+    .price {
+        font-size: 1.5rem; /* Ajusta el tamaño de precio */
+    }
+
+    .description {
+        font-size: 1rem; /* Reduce el tamaño de la descripción */
+    }
+
+    .car {
+        padding: 10px; 
+    }
+    .price{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: xx-large;
+    }
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 88%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+      .mainReseña{
+        margin: auto;
+      }
 }
+@media (max-width: 700px) {
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 87%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+}
+@media (max-width: 640px) {
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 84%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+}
+@media (max-width: 500px) {
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 80%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+}
+
+@media (max-width: 425px) {
+    .comment {
+        padding: 5%;
+    }
+
+    .star-rating {
+        font-size: 1.5rem; 
+    }
+
+    .car-main {
+        padding: 0 10px; 
+    }
+
+    .car {
+        flex: 100%; 
+    }
+    .price{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: xx-large;
+    }
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 73%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+      .commentsNS{
+        display: flex;
+        flex-direction: column;
+      }
+      .star-rating{
+        font-size: 1rem;
+    }
+    .star-rating label{
+        font-size: xx-large;
+    }
+    .styleReseña{
+        display: flex;
+        flex-direction: column;
+    }
+    .styleReseña h3{
+        margin: auto;
+    }
+    .styleTB textarea{
+        height: 100px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #cae3e283;
+    }
+    .commentsDT{
+        font-size: small;
+      }
+}
+
+@media (max-width: 320px) {
+    .containers {
+        padding: 10px; 
+     }
+
+    .img-event {
+        margin: 2px 0; 
+    }
+
+    .car h3 {
+        font-size: 1.2rem; 
+    }
+
+    .car {
+        padding: 5px; 
+    }
+    .price{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: xx-large;
+    }
+    .car-images{
+        display: none;
+    }
+
+    .star-rating{
+        font-size: 1rem;
+    }
+    .star-rating label{
+        font-size: xx-large;
+    }
+    .styleReseña{
+        display: flex;
+        flex-direction: column;
+    }
+    .styleReseña h3{
+        margin: auto;
+    }
+    .styleTB textarea{
+        height: 100px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #cae3e283;
+    }
+    #enviar-opinion {
+        position: absolute;
+        bottom: 10px;
+        left: 73%;
+        z-index: 1;
+        padding: 5px 10px;
+      }
+      .commentsNS{
+        display: flex;
+        flex-direction: column;
+      }
+      .commentsDT{
+        font-size: small;
+      }
 }
