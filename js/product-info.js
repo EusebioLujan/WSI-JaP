@@ -92,7 +92,6 @@ function createProdInfo(Obj, comments) {
                         <p class="sold-count">${Obj.soldCount} vendidos</p>
                     </div>
                     </div>
-
                     <div class="mainReseña">
                     <div class="styleReseña">
                     <h3>Deja tu Reseña</h3>
@@ -116,7 +115,6 @@ function createProdInfo(Obj, comments) {
                         <button class="btn btn-primary" id="enviar-opinion">Enviar</button>
                         </div>
                     </div>
-
                     <h3>Opiniones Destacadas </h3>
                     <div class="comment ">${commentsHTML}</div> 
                     <h3 class="relatedTitle">Quienes compraron este producto también vieron</h3>
