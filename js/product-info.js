@@ -176,6 +176,14 @@ document.addEventListener("click", function (event) {
       });
       return;
     }
+    if (desc === '') {
+        Swal.fire({
+          icon: "error",
+          title: "Porfavor deje un comentario antes de enviar su opinion",
+          confirmButtonText: "Aceptar",
+        });
+        return;
+    }
     let usuario = localStorage.getItem("user");
     let nuevaOpinion = {
       dateTime: fecha,
@@ -193,3 +201,30 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getFullYear()).slice(-2)} | ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 }
+//boton modo noche
+document.getElementById('switch').addEventListener('click', function() {
+  // alternar la clase 'active' en el botón
+  this.classList.toggle('active');
+
+  // cambiar el modo de la página
+  document.body.classList.toggle('dark');
+  
+    // cambiar los sibolitos
+  const isDarkMode = document.body.classList.contains('dark');
+  });
+
+// pone el modo inicial
+if (localStorage.getItem('mode') === 'dark') {
+  document.body.classList.add('dark');
+  document.getElementById('switch').classList.add('active');
+  document.querySelector('i.fa-sun').style.display = 'none';
+  document.querySelector('i.fa-moon').style.display = 'inline';
+} else {
+  document.body.classList.add('light');
+}
+
+// guardar el modo en localStorage
+window.addEventListener('unload', () => {
+  localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
+ 
