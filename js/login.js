@@ -35,7 +35,7 @@ document.getElementById("ingresar").addEventListener("click", async function(e) 
 
         if (user) {
             localStorage.setItem("logeado", true);
-            localStorage.setItem("user", user.firstName);
+            localStorage.setItem("user", JSON.stringify(user));
             window.location.href = "index.html";
         } else {
             usernameError.textContent = "";

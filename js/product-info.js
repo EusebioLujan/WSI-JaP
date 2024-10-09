@@ -174,6 +174,14 @@ document.addEventListener("click", function (event) {
       });
       return;
     }
+    if (desc === '') {
+        Swal.fire({
+          icon: "error",
+          title: "Porfavor deje un comentario antes de enviar su opinion",
+          confirmButtonText: "Aceptar",
+        });
+        return;
+    }
     let usuario = localStorage.getItem("user");
     let nuevaOpinion = {
       dateTime: fecha,

@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   Login_Check();
   
-  const userName = localStorage.getItem("user");
+  const userName = JSON.parse(localStorage.getItem("user"));
   if (userName) {
       const userLi = document.createElement("li");
       const userP = document.createElement("p");
       const logoutBtn = document.createElement("button");
       const navbarNav = document.querySelector(".navbar-nav");
 
-      userP.innerHTML = ` <a href="my-profile.html">Bienvenid@, ${userName} </a>`;
+      userP.innerHTML = ` <a href="my-profile.html">Bienvenid@, ${userName.firstName} </a>`;
 
       logoutBtn.textContent = "Cerrar sesión";
 

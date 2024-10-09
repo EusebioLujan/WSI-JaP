@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
             firstName: firstName,
             lastName: lastName,
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            image:null,
+            phone:null
         };
 
         users.push(newUser);
