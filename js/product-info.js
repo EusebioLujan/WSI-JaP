@@ -206,10 +206,11 @@ document.getElementById('switch').addEventListener('click', function() {
   // alternar la clase 'active' en el botón
   this.classList.toggle('active');
 
-  // cambiar el modo de la página
+  // cambia el modo de la página
   document.body.classList.toggle('dark');
   
-    // cambiar los sibolitos
+  
+    // cambia los sibolitos
   const isDarkMode = document.body.classList.contains('dark');
   });
 
