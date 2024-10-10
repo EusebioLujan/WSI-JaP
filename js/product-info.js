@@ -201,6 +201,7 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getFullYear()).slice(-2)} | ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 }
+
 //boton modo noche
 document.getElementById('switch').addEventListener('click', function() {
   // alternar la clase 'active' en el botón
@@ -208,6 +209,7 @@ document.getElementById('switch').addEventListener('click', function() {
 
   // cambia el modo de la página
   document.body.classList.toggle('dark');
+  document.getElementById('container-info').classList.toggle('dark');
   
   
     // cambia los sibolitos
@@ -228,4 +230,3 @@ if (localStorage.getItem('mode') === 'dark') {
 window.addEventListener('unload', () => {
   localStorage.setItem('mode', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
- 
