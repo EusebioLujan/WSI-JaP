@@ -39,13 +39,11 @@ function initializeProfileImageUpdater({ fileInputId, confirmButtonId, profileIm
     const confirmButtonElement = document.getElementById(confirmButtonId);
     const profileImageElement = document.getElementById(profileImageId);
 
-    // Cargar imagen de perfil actual
     const user = JSON.parse(localStorage.getItem('user'));
     if (user && user.image) {
         profileImageElement.src = user.image;
     }
 
-    // Listener para cuando el usuario selecciona un archivo
     fileInputElement.addEventListener('change', () => {
         handleFileSelect(fileInputElement);
         const reader = new FileReader();
@@ -55,7 +53,6 @@ function initializeProfileImageUpdater({ fileInputId, confirmButtonId, profileIm
         reader.readAsDataURL(fileInputElement.files[0]);
     });
 
-    // Listener para confirmar los cambios
     confirmButtonElement.addEventListener('click', () => {
         Swal.fire({
             icon: 'success',
@@ -69,3 +66,11 @@ function initializeProfileImageUpdater({ fileInputId, confirmButtonId, profileIm
 }
 
 export { initializeProfileImageUpdater };
+
+
+/*initializeProfileImageUpdater({
+        fileInputId: 'fileInput',
+        confirmButtonId: 'confirmButton',
+        profileImageId: 'profileImage',
+        successMessage: '¡Datos Registrados actualizados con éxito!'
+    });*/ 
