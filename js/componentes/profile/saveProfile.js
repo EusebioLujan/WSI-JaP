@@ -1,4 +1,4 @@
-import { validateForm } from "../validateForm.js";
+import { validateForm } from "../../utils/validateForm.js";
 
 export function saveProfileChanges(event) {
   event.preventDefault();

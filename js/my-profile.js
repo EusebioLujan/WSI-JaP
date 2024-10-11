@@ -1,9 +1,9 @@
 import { initializeProfileImageUpdater } from "./imageUpdater.js";
-import { renderProfileForm } from "../js/utils/utilsProfile/profileForm.js";
-import { initializeUserProfile } from "../js/utils/utilsProfile/userProfile.js";
-import { enableFormEditing } from "../js/utils/utilsProfile/formEditing.js";
-import { saveProfileChanges } from "../js/utils/utilsProfile/saveProfile.js";
-import { setupFileInputListener } from "../js/utils/utilsProfile/fileInput.js";
+import { renderProfileForm } from "./componentes/profile/profileForm.js";
+import { initializeUserProfile } from "./componentes/profile/userProfile.js";
+import { enableFormEditing } from "./componentes/profile/formEditing.js";
+import { saveProfileChanges } from "./componentes/profile/saveProfile.js";
+import { setupFileInputListener } from "./componentes/profile/fileInput.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderProfileForm();
