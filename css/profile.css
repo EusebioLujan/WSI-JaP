@@ -1,0 +1,66 @@
+.profile-container {
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+
+.profile-container h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: large;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#editButton,
+#saveButton,
+#confirmButton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#saveButton:disabled {
+  background-color: #ccc;
+}
+#confirmButton:disabled{
+    background-color: #ccc;
+}
+
+#editButton.active {
+  background-color: #ccc;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border:solid 1px #dc3545;
+}
