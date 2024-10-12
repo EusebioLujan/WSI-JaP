@@ -174,6 +174,7 @@ document.addEventListener("click", function (event) {
       });
       return;
     }
+    // Verificamos si se la opinion tiene contenido antes de enviar la opinión
     if (desc === '') {
         Swal.fire({
           icon: "error",
