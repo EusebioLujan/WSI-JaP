@@ -1,7 +1,12 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a2a4f;
-    color: #333;
+    color: #292727;
+
+    &.dark{
+        background-color: #000000;
+        color: #ffffff;
+    }
 }
 
 .containers {
@@ -10,8 +15,12 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-}
 
+    &.dark{
+        background-color: #292727;
+        color: white;
+    }
+}
 h1 {
     padding-left: 5%;
     font-size: 2.5rem;
@@ -337,90 +346,14 @@ h1::after {
         padding: 5px 10px;
       }
 }
+@media (max-width: 425px){
 
-@media (max-width: 425px) {
-    .comment {
-        padding: 5%;
+.star-rating{
+    left: 45%;
+    top: -0vh;
     }
-
-    .star-rating {
-        font-size: 1.5rem; 
-    }
-
-    .car-main {
-        padding: 0 10px; 
-    }
-
-    .car {
-        flex: 100%; 
-    }
-    .price{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-size: xx-large;
-    }
-    #enviar-opinion {
-        position: absolute;
-        bottom: 10px;
-        left: 73%;
-        z-index: 1;
-        padding: 5px 10px;
-      }
-      .commentsNS{
-        display: flex;
-        flex-direction: column;
-      }
-      .star-rating{
-        font-size: 1rem;
-    }
-    .star-rating label{
-        font-size: xx-large;
-    }
-    .styleReseña{
-        display: flex;
-        flex-direction: column;
-    }
-    .styleReseña h3{
-        margin: auto;
-    }
-    .styleTB textarea{
-        height: 100px;
-        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-        background-color: #cae3e283;
-    }
-    .commentsDT{
-        font-size: small;
-      }
 }
-
-@media (max-width: 320px) {
-    .containers {
-        padding: 10px; 
-     }
-
-    .img-event {
-        margin: 2px 0; 
-    }
-
-    .car h3 {
-        font-size: 1.2rem; 
-    }
-
-    .car {
-        padding: 5px; 
-    }
-    .price{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-size: xx-large;
-    }
-    .car-images{
-        display: none;
-    }
+@media (max-width: 320px){
 
     .star-rating{
         font-size: 1rem;
@@ -454,4 +387,49 @@ h1::after {
       .commentsDT{
         font-size: small;
       }
+}
+
+/*boton modo oscuro*/
+.switch{
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background: white;
+      top: 0;
+      left: 0;
+      right: unset;
+      border-radius: 100px;
+      transition: .3s ease all;
+      box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2)
+
+    }
+    &.active{
+        background: orange;
+        color: #000;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+
+
+    span {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: white;
+    }
 }

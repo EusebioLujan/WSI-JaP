@@ -10,12 +10,18 @@
 .profile-container h2 {
   text-align: center;
 }
+.sector{
+  display: flex;
+  margin: auto;
+  margin-bottom: 1%;
+  justify-content:space-between ;
+}
 
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  font-size: large;
+  font-size: medium;
 }
 
 input[type="text"],
@@ -35,7 +41,7 @@ input[type="file"] {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background-color: #dc3545;
+  background-color: #111A48;
   color: white;
   border: none;
   border-radius: 5px;
@@ -62,5 +68,5 @@ img {
   min-width: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border:solid 1px #dc3545;
+  border:solid 1px #111A48;
 }
