@@ -2,12 +2,20 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #1a2a4f;
     color: #292727;
+    transition: .3s ease all;
 
     &.dark{
         background-color: #000000;
         color: #ffffff;
+        
     }
-}
+    &.dark h1 {
+        color: white;
+    }
+    &.dark h2{
+        color: white;
+        text-shadow: #6b6bff;
+    }
 
 .containers {
     max-width: 1000px;
@@ -15,11 +23,20 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    transition: .3s ease all;
 
     &.dark{
         background-color: #292727;
-        color: white;
-    }
+        color: #ffffff;
+        
+        }
+        &.dark .comment{
+            color: #000000;
+            background: #000000;
+        }
+        &.dark .car{
+            background-color: #00000073;
+        }
 }
 h1 {
     padding-left: 5%;
@@ -168,7 +185,11 @@ h1::after {
     border-radius: 4px;
     padding: 1%;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #cae3e283;
+    background-color: #9aa0a083;
+
+    &.dark{
+        background-color: #b3b01a;
+    }
 
 }
 .commentsData{
