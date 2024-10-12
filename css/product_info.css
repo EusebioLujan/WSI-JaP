@@ -2,24 +2,41 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #1a2a4f;
     color: #292727;
+    transition: .3s ease all;
 
     &.dark{
         background-color: #000000;
         color: #ffffff;
+        
+    }
+    &.dark h1 {
+        color: white;
+    }
+    &.dark h2{
+        color: white;
+        text-shadow: #6b6bff;
     }
 }
-
 .containers {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    transition: .3s ease all;
 
     &.dark{
         background-color: #292727;
-        color: white;
-    }
+        color: #ffffff;
+        
+        }
+        &.dark .comment{
+            color: #000000;
+            background: #000000;
+        }
+        &.dark .car{
+            background-color: #00000073;
+        }
 }
 h1 {
     padding-left: 5%;
@@ -168,7 +185,11 @@ h1::after {
     border-radius: 4px;
     padding: 1%;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #cae3e283;
+    background-color: #9aa0a083;
+
+    &.dark{
+        background-color: #b3b01a;
+    }
 
 }
 .commentsData{
@@ -176,6 +197,9 @@ h1::after {
     justify-content: space-between;
 }
 .commentsNS{
+    display: flex;
+}
+.commentsNS p {
     display: flex;
 }
 #userC{
@@ -253,6 +277,53 @@ h1::after {
 .star-rating label:hover ~ label{
     color: gold;
 }
+/*boton modo oscuro*/
+.switch{
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background: white;
+      top: 0;
+      left: 0;
+      right: unset;
+      border-radius: 100px;
+      transition: .3s ease all;
+      box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2)
+
+    }
+    &.active{
+        background: orange;
+        color: #000;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+}
+
+    span {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: white;
+    }
+.darkmodeboton{
+    padding-top: 5px;
+}
+   
 @media (max-width: 1080px) {
     .car-main {
         flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
@@ -387,49 +458,4 @@ h1::after {
       .commentsDT{
         font-size: small;
       }
-}
-
-/*boton modo oscuro*/
-.switch{
-    background: #343D5B;
-    border-radius: 1000px;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    outline: none;
-    
-    &::after {
-      content: "";
-      display: block;
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      background: white;
-      top: 0;
-      left: 0;
-      right: unset;
-      border-radius: 100px;
-      transition: .3s ease all;
-      box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2)
-
-    }
-    &.active{
-        background: orange;
-        color: #000;
-        &::after{
-            right: 0;
-            left: unset;
-        }
-    }
-
-
-    span {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        background: none;
-        color: white;
-    }
 }
