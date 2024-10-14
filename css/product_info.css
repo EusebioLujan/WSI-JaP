@@ -1,22 +1,3 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1a2a4f;
-    color: #292727;
-    transition: .3s ease all;
-
-    &.dark{
-        background-color: #000000;
-        color: #ffffff;
-        
-    }
-    &.dark h1 {
-        color: white;
-    }
-    &.dark h2{
-        color: white;
-        text-shadow: #6b6bff;
-    }
-}
 .containers {
     max-width: 1000px;
     margin: 0 auto;
@@ -24,19 +5,6 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: .3s ease all;
-
-    &.dark{
-        background-color: #292727;
-        color: #ffffff;
-        
-        }
-        &.dark .comment{
-            color: #000000;
-            background: #000000;
-        }
-        &.dark .car{
-            background-color: #00000073;
-        }
 }
 h1 {
     padding-left: 5%;
@@ -186,11 +154,6 @@ h1::after {
     padding: 1%;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #9aa0a083;
-
-    &.dark{
-        background-color: #b3b01a;
-    }
-
 }
 .commentsData{
     display: flex;
@@ -199,7 +162,7 @@ h1::after {
 .commentsNS{
     display: flex;
 }
-.commentsNS p {
+.commentsNS p{
     display: flex;
 }
 #userC{
@@ -276,70 +239,22 @@ h1::after {
 .star-rating label:hover,
 .star-rating label:hover ~ label{
     color: gold;
-}
-/*boton modo oscuro*/
-.switch{
-    background: #343D5B;
-    border-radius: 1000px;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    outline: none;
-    
-    &::after {
-      content: "";
-      display: block;
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      background: white;
-      top: 0;
-      left: 0;
-      right: unset;
-      border-radius: 100px;
-      transition: .3s ease all;
-      box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2)
-
-    }
-    &.active{
-        background: orange;
-        color: #000;
-        &::after{
-            right: 0;
-            left: unset;
-        }
-    }
-}
-
-    span {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        background: none;
-        color: white;
-    }
-.darkmodeboton{
-    padding-top: 5px;
-}
-   
+}  
 @media (max-width: 1080px) {
     .car-main {
-        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+        flex-direction: column;
     }
     
     .car-details {
-        order: 1; /* Asegura que los detalles del coche estén primero */
-    }
+        order: 1; }
 
     .car-images {
-        order: 2; /* Asegura que las imágenes del coche estén después */
+        order: 2;
     }
     
     .car {
-        margin-right: 0; /* Elimina el margen en pantallas más pequeñas */
-        margin-bottom: 20px; /* Agrega un margen inferior para separación */
+        margin-right: 0;
+        margin-bottom: 20px; 
     }
     .mainReseña{
         margin: auto;

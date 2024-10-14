@@ -1,4 +1,4 @@
-import { initializeProfileImageUpdater } from "./imageUpdater.js";
+import { initializeProfileImageUpdater } from "./componentes/profile/imageUpdater.js";
 import { renderProfileForm } from "./componentes/profile/profileForm.js";
 import { initializeUserProfile } from "./componentes/profile/userProfile.js";
 import { enableFormEditing } from "./componentes/profile/formEditing.js";

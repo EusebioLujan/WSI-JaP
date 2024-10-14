@@ -15,64 +15,47 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/darkmode.css">
   </head>
-
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+    <div id="sidebar" class="sidebar">
+      <h2>Menú</h2>
+      <ul>
+        <li><a href="index.html" id="inicio" class="fa fa-home">Inicio</a></li>
+        <li>
+          <a href="my-profile.html" id="editar-perfil" class="fa fa-user"
+            >Perfil</a
+          >
+        </li>
+        <li>
+          <a href="cart.html" id="continuar-compra" class="fa fa-shopping-cart"
+            >Continúa con tu compra</a
+          >
+        </li>
+      </ul>
+      <div class="darkmodeboton">
+        <button class="switch" id="switch">
+          <span><i class="fa fa-sun"></i></span>
+          <span><i class="fa fa-moon"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item"></li>
-          </ul>
-        </div>
       </div>
-    </nav>
+    </div>
     <main>
       <div id="container" class="container"></div>
     </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-      </div>
-    </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script type="module" src="js/my-profile.js"></script>
     <script src="js/navbar.js"></script>
-    <script type="module" src="js/imageUpdater.js"></script>
+    <script type="module" src="js/componentes/profile/imageUpdater.js"></script>
     <script type="module" src="js/utils/validateForm.js"></script>
     <script type="module" src="js/componentes/profile/fileInput.js"></script>
     <script type="module" src="js/componentes/profile/formEditing.js"></script>
     <script type="module" src="js/componentes/profile/profileForm.js"></script>
     <script type="module" src="js/componentes/profile/saveProfile.js"></script>
     <script type="module" src="js/componentes/profile/userProfile.js"></script>
+    <script type="module" src="js/utils/darkMode.js"></script>
   </body>
 </html>

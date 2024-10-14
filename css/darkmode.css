@@ -1,0 +1,58 @@
+.switch {
+    background: #343D5B;
+    border-radius: 100px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    z-index: 1;
+    width: 60px; 
+    height: 30px; 
+    
+    &::after {
+        content: "";
+        display: block;
+        width: 28px; 
+        height: 28px;
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        transition: .3s ease all;
+        z-index: 2;
+        left: 1px;
+    }
+    
+    &.active {
+        background: orange;
+        color: #000;
+        &::after {
+            left: unset;
+            right: 1px; 
+               }
+    }
+}
+
+.switch span {
+    width: 30px; 
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    position: absolute;
+}
+
+.switch span:first-of-type {
+    left: 0px; 
+}
+
+.switch span:last-of-type {
+    right: 0px; 
+}
+
+.darkmodeboton {
+    padding-top: 5px;
+}
