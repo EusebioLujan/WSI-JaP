@@ -1,4 +1,4 @@
-import hashPassword from "./hashpwd.js";
+import hashedPasswords from "./utils/hashpwd.js"
 document.getElementById("registrar").addEventListener("click",()=>{
     window.location="register.html"
 })
@@ -28,7 +28,7 @@ document.getElementById("ingresar").addEventListener("click", async function(e) 
     }
 
     if (valid) {
-        const hashedPassword = await hashPassword(password);
+        const hashedPassword = await hashedPasswords(password);
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
         const user = users.find(user => user.email === email && user.password === hashedPassword);
