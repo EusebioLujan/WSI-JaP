@@ -183,14 +183,15 @@ document.addEventListener("click", function (event) {
         });
         return;
     }
-    let usuario = localStorage.getItem("user");
+    let usuario = JSON.parse(localStorage.getItem("user"));
     let nuevaOpinion = {
       dateTime: fecha,
       description: desc,
       score: score,
-      user: usuario,
+      user: usuario.firstName +"_"+ usuario.lastName,
     };
-    commentArray.push(nuevaOpinion);
+  
+    commentArray.push(nuevaOpinion);  
     createProdInfo(prodInfoArray, commentArray); // Se vuelve a generar la vista con los nuevos datos
     score = undefined;
   }
