@@ -1,4 +1,4 @@
-import hashPassword from "./hashpwd.js";
+import hashPassword from "./utils/hashpwd.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const registrationForm = document.getElementById("registrationForm");
@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
             firstName: firstName,
             lastName: lastName,
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            image:null,
+            phone:null
         };
 
         users.push(newUser);
