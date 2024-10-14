@@ -261,7 +261,8 @@ body.dark{
   background-color: #1a2a4f;
   color: white;
 }
-body.dark h3{
+body.dark h3,
+body.dark .card-text{
   color:black
 }
 body.dark #cath2{
