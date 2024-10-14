@@ -1,0 +1,155 @@
+body {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+  background-color: #f5f5f5;
+}
+main {
+  min-height: 100vh;
+  width: calc(100vw - 300px);
+}
+#container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.profile-container {
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 600px;
+}
+
+.profile-container h2 {
+  text-align: center;
+}
+.sector {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  justify-content: space-between;
+}
+.sector div {
+  width: 250px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: medium;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#editButton,
+#saveButton,
+#confirmButton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #111a48;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#saveButton:disabled {
+  background-color: #ccc;
+}
+#confirmButton:disabled {
+  background-color: #ccc;
+}
+
+#editButton.active {
+  background-color: #ccc;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: solid 1px #111a48;
+}
+.image-upload-container {
+  position: relative;
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  margin: auto;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin: auto;
+}
+
+.file-label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.file-input {
+  display: none;
+}
+
+.overlay {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.file-label:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  font-size: 14px;
+  text-align: center;
+}
+input.editable {
+  border: 1px solid #111a48;
+  box-shadow: 0 0 5px #111a48;
+  background-color: #111a4829;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}

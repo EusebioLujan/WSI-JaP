@@ -1,31 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   Login_Check();
   
-  const userName = localStorage.getItem("user");
+  const userName = JSON.parse(localStorage.getItem("user"));
   if (userName) {
-      const userLi = document.createElement("li");
-      const userP = document.createElement("p");
-      const logoutBtn = document.createElement("button");
+      const userLi = document.createElement("div");
+    //   const userBtn = document.createElement("p");
+    //   const logoutBtn = document.createElement("button");
       const navbarNav = document.querySelector(".navbar-nav");
 
-      userP.innerHTML = ` <a href="my-profile.html">Bienvenid@, ${userName} </a>`;
+      userLi.innerHTML = ` 
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Bienvenid@, ${userName.firstName}
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+            <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+            <li><button class="btn btn-danger btn-outline-light ms-2" id="logout">Cerrar sesión</button></li>
+        </ul>
+      `;
 
-      logoutBtn.textContent = "Cerrar sesión";
+      userLi.className = "nav-item d-flex align-items-center dropdown";
 
-      userLi.className = "nav-item d-flex align-items-center";
-      userP.className = "nav-link m-0";
-      logoutBtn.className = "btn btn-danger btn-outline-light ms-2";
-
-      logoutBtn.addEventListener("click", function() {
-          localStorage.setItem("logeado", "false"); // Guardar como cadena
-          localStorage.removeItem("user");
-          Login_Check();
-      });
-
-      userLi.appendChild(userP);
-      userLi.appendChild(logoutBtn);
       navbarNav.appendChild(userLi);
   }
+
+  document.getElementById("logout").addEventListener("click", function() {
+    localStorage.setItem("logeado", "false"); // Guardar como cadena
+    localStorage.removeItem("user");
+    Login_Check();
+  });
 });
 
 function Login_Check() {
@@ -53,3 +56,5 @@ function Login_Check() {
       });
   }
 }
+
+

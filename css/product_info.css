@@ -1,17 +1,11 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1a2a4f;
-    color: #333;
-}
-
 .containers {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    transition: .3s ease all;
 }
-
 h1 {
     padding-left: 5%;
     font-size: 2.5rem;
@@ -159,14 +153,16 @@ h1::after {
     border-radius: 4px;
     padding: 1%;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #cae3e283;
-
+    background-color: #9aa0a083;
 }
 .commentsData{
     display: flex;
     justify-content: space-between;
 }
 .commentsNS{
+    display: flex;
+}
+.commentsNS p{
     display: flex;
 }
 #userC{
@@ -243,23 +239,22 @@ h1::after {
 .star-rating label:hover,
 .star-rating label:hover ~ label{
     color: gold;
-}
+}  
 @media (max-width: 1080px) {
     .car-main {
-        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+        flex-direction: column;
     }
     
     .car-details {
-        order: 1; /* Asegura que los detalles del coche estén primero */
-    }
+        order: 1; }
 
     .car-images {
-        order: 2; /* Asegura que las imágenes del coche estén después */
+        order: 2;
     }
     
     .car {
-        margin-right: 0; /* Elimina el margen en pantallas más pequeñas */
-        margin-bottom: 20px; /* Agrega un margen inferior para separación */
+        margin-right: 0;
+        margin-bottom: 20px; 
     }
     .mainReseña{
         margin: auto;
@@ -337,90 +332,14 @@ h1::after {
         padding: 5px 10px;
       }
 }
+@media (max-width: 425px){
 
-@media (max-width: 425px) {
-    .comment {
-        padding: 5%;
+.star-rating{
+    left: 45%;
+    top: -0vh;
     }
-
-    .star-rating {
-        font-size: 1.5rem; 
-    }
-
-    .car-main {
-        padding: 0 10px; 
-    }
-
-    .car {
-        flex: 100%; 
-    }
-    .price{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-size: xx-large;
-    }
-    #enviar-opinion {
-        position: absolute;
-        bottom: 10px;
-        left: 73%;
-        z-index: 1;
-        padding: 5px 10px;
-      }
-      .commentsNS{
-        display: flex;
-        flex-direction: column;
-      }
-      .star-rating{
-        font-size: 1rem;
-    }
-    .star-rating label{
-        font-size: xx-large;
-    }
-    .styleReseña{
-        display: flex;
-        flex-direction: column;
-    }
-    .styleReseña h3{
-        margin: auto;
-    }
-    .styleTB textarea{
-        height: 100px;
-        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-        background-color: #cae3e283;
-    }
-    .commentsDT{
-        font-size: small;
-      }
 }
-
-@media (max-width: 320px) {
-    .containers {
-        padding: 10px; 
-     }
-
-    .img-event {
-        margin: 2px 0; 
-    }
-
-    .car h3 {
-        font-size: 1.2rem; 
-    }
-
-    .car {
-        padding: 5px; 
-    }
-    .price{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-size: xx-large;
-    }
-    .car-images{
-        display: none;
-    }
+@media (max-width: 320px){
 
     .star-rating{
         font-size: 1rem;
