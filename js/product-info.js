@@ -67,7 +67,7 @@ function createProdInfo(Obj, comments) {
           </div>
           <p class="commentsDT">${formattedDate}</p>
         </div>
-        <p>${comment.description}</p>
+        <p id="descproduinfo">${comment.description}</p>
       </div>
     `;
   })
@@ -92,7 +92,6 @@ function createProdInfo(Obj, comments) {
                         <p class="sold-count">${Obj.soldCount} vendidos</p>
                     </div>
                     </div>
-
                     <div class="mainReseña">
                     <div class="styleReseña">
                     <h3>Deja tu Reseña</h3>
@@ -116,7 +115,6 @@ function createProdInfo(Obj, comments) {
                         <button class="btn btn-primary" id="enviar-opinion">Enviar</button>
                         </div>
                     </div>
-
                     <h3>Opiniones Destacadas </h3>
                     <div class="comment ">${commentsHTML}</div> 
                     <h3 class="relatedTitle">Quienes compraron este producto también vieron</h3>
@@ -176,6 +174,15 @@ document.addEventListener("click", function (event) {
       });
       return;
     }
+    // Verificamos si se la opinion tiene contenido antes de enviar la opinión
+    if (desc === '') {
+        Swal.fire({
+          icon: "error",
+          title: "Porfavor deje un comentario antes de enviar su opinion",
+          confirmButtonText: "Aceptar",
+        });
+        return;
+    }
     let usuario = localStorage.getItem("user");
     let nuevaOpinion = {
       dateTime: fecha,
@@ -193,3 +200,4 @@ function formatDate(dateString) {
     const date = new Date(dateString);
     return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getFullYear()).slice(-2)} | ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 }
+
