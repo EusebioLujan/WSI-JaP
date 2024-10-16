@@ -6,7 +6,6 @@ function updateUserProfileImage() {
     if (tempImageSrc) {
       user.image = tempImageSrc;
       localStorage.setItem("user", JSON.stringify(user));
-      console.log("Imagen de perfil actualizada correctamente.");
       tempImageSrc = null;
     } else {
       console.error("El source de la imagen está vacío.");
@@ -22,9 +21,6 @@ function handleFileSelect(fileInput) {
     const reader = new FileReader();
     reader.onload = function (e) {
       tempImageSrc = e.target.result;
-      console.log(
-        'Imagen seleccionada. Haz clic en "Guardar cambios" para actualizar.'
-      );
     };
     reader.readAsDataURL(file);
   } else {
