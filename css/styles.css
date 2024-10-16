@@ -261,6 +261,7 @@ body.dark{
   background-color: #1a2a4f;
   color: white;
 }
+/* categoria*/
 body.dark h3,
 body.dark .card-text{
   color:black
@@ -268,14 +269,41 @@ body.dark .card-text{
 body.dark #cath2{
   color: white;
 }
-
+body.dark .list-group-item{
+  background-color: #8d8d8d;
+}
 /*darkmode del products*/
 body.dark #categoryName{
   color: black;
 }
+body.dark #filtrocon{
+  background-color: #8d8d8d;
+}
+body.dark .card{
+  background-color: #707070;
+}
+body.dark #cont{
+  background-color: #535353;
+}
+body.dark .lead{
+  color: white;
+}
+body.dark #probando{
+  background-color: #8d8d8d;
+}
+
 /*darkmode del product info*/
 body.dark #userC,
 body.dark .commentsDT,
 body.dark #descproduinfo{
   color: #1a2a4f;
+}
+body.dark .containers{
+  background-color: #8d8d8d;
+}
+body.dark p{
+  color: black;
+}
+body.dark .car{
+  background-color: #c2c2c2;
 }
