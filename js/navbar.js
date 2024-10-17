@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
             <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+            <li><hr class="dropdown-divider"></li>
             <li><button class="btn btn-danger btn-outline-light ms-2" id="logout">Cerrar sesión</button></li>
         </ul>
       `;
