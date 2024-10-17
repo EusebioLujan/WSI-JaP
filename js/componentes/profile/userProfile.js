@@ -7,6 +7,6 @@ export function initializeUserProfile() {
     document.getElementById("segundoApellido").value = user.secondLastName || "";
     document.getElementById("email").value = user.email || "";
     document.getElementById("telefono").value = user.phone || "";
-    document.getElementById("profileImage").src = user.image || "img/img_perfil.png";
+    document.getElementById("profileImage").src = user.image || "img/Chayanne.jpg";
   }
 }

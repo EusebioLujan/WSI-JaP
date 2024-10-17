@@ -53,10 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading();
-            },
-            willClose: () => {
-                clearInterval(timerInterval); 
             }
+            //,
+            // willClose: () => {
+            //     clearInterval(timerInterval); 
+            // }
         }).then(() => {
             window.location.href = "login.html";
         });
